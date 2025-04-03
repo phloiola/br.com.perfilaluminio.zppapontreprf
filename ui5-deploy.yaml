@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: br.com.perfilaluminio.zppapontreprf
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://perfilcidev.perfilaluminio.com.br:8000/
+          client: '100'
+        app:
+          name: ZPP_APONT_REPRF
+          description: Relatório de Programação por Ferramenta
+          package: ZAPONTAMENTO
+          transport: SHDK915451
+        exclude:
+          - /test/

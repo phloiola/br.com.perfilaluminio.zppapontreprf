@@ -1,0 +1,143 @@
+<mvc:View controllerName="br.com.perfilaluminio.zppapontreprf.controller.List"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:f="sap.f"
+    xmlns:table="sap.ui.table"
+    xmlns:sv="sap.ui.comp.smartvariants"
+    >
+    <Page id="page" title="{i18n>title}" showHeader="false">
+        <content>
+
+        <f:DynamicPage
+            id="synamicPage"
+            fitContent="true"
+        >
+            <f:header>
+                <f:DynamicPageHeader>
+                    <f:content>
+                        <smartFilterBar:SmartFilterBar
+                            id="smartFilterBar"
+                            persistencyKey="br.com.perfilaluminio.zppapontreprf.List.FilterBar"
+                            entitySet="FerramentaSet"
+                            showClearOnFB="true"
+                            showRestoreOnFB="false"
+                            considerSelectionVariants="true"
+                            visible="true"
+                            showFilterConfiguration="true"
+                            initialise="onInitSmartFilterBar"
+                            afterVariantLoad="onAfterVariantLoad"
+                        >
+                            <!-- smartVariant="__SVM01"
+                            assignedFiltersChanged="onAssignedFiltersChanged"        
+                        > -->
+                            <!--  layout data used to make the table growing but the filter bar fixed  -->
+                            <smartFilterBar:controlConfiguration>
+                                
+                                <smartFilterBar:ControlConfiguration
+                                    key="CentroTrab"
+                                    visibleInAdvancedArea="true"
+                                    index="1"
+                                />
+
+                                <smartFilterBar:ControlConfiguration
+                                    key="DtProgr"
+                                    visibleInAdvancedArea="true"
+                                    conditionType="{
+                                        defaultOperation: 'TODAY'
+                                    }"
+                                />
+
+
+<!-- <smartFilterBar:ControlConfiguration
+                                    key="Dtprogr"
+                                    visibleInAdvancedArea="true"
+                                                                        conditionType="{
+								module: 'sap.ui.comp.config.condition.DateRangeType',
+                                defaultOperation: 'TODAY',
+                                operations: {
+                                        filter: [
+                                            {path: 'category', contains: '.INT', exclude:true},
+                                            {path: 'category', contains: 'QUARTER', exclude:true},
+                                            {path: 'category', contains: 'FIXED.DATE', exclude:false},
+                                            {path: 'category', contains: 'FIXED.WEEK', exclude:false},
+                                            {path: 'key', equals: 'TO', exclude:true}
+                                        ] }
+                               
+							        }"
+                                /> -->
+                                <smartFilterBar:ControlConfiguration
+                                    key="Equnr"
+                                    visibleInAdvancedArea="true"
+                                    index="3"
+                                />
+                                
+                            </smartFilterBar:controlConfiguration>
+                        </smartFilterBar:SmartFilterBar>
+                    </f:content>
+                </f:DynamicPageHeader>
+            </f:header>
+            <f:content>
+                    <smartTable:SmartTable
+                        visible="true"
+                        id="smartTable"
+                        entitySet="FerramentaSet"
+                        smartFilterId="smartFilterBar"
+                        tableType="ResponsiveTable"
+                        placeToolbarInTable="true"
+                        useExportToExcel="true"
+                        useTablePersonalisation="true"
+                        header="Programação"
+                        showRowCount="true"
+                        requestAtLeastFields=""
+                        initiallyVisibleFields="CentroTrab,Equnr,QtdeOPs,BO,BAT,Comprimento,Tempera,QtdePec,QtdeKg"
+                        beforeRebindTable="onBeforeRebindTable"
+                        ignoredFields="DtProgr"
+                        enableAutoColumnWidth="true"
+                        useVariantManagement="true"
+                        persistencyKey="br.com.perfilaluminio.zppapontreprf.List.TableAvailable"
+                        ignoreFromPersonalisation="DtProgr"
+                        customData:p13nDialogSettings="{group:{visible:false}}"
+                        enableAutoBinding="true"
+                        modelContextChange="onModelContextChange"    
+                        demandPopin="true"
+                        fitContainer="true"       
+                    >
+                        <!-- Propriedade do Smarttable, que serve para definir um tamanho especifico no smarttable para a coluna
+                         customizeConfig="{'autoColumnWidth': { 'Perfil': {'min': 0, 'max': 4, 'gap': 0, 'truncateLabel': false}, 
+                                                                'Kunnrfull': {'min': 0, 'max': 15, 'gap': 0, 'truncateLabel': false},
+                                                                'Comprimento': {'min': 0, 'max': 5, 'gap': 0, 'truncateLabel': false} }}" -->
+
+                        <!--  layout data used to make the table growing but the filter bar fixed  -->
+                        <smartTable:layoutData>
+                            <FlexItemData
+                                id="_IDGenFlexItemData2"
+                                growFactor="1"
+                            />
+                        </smartTable:layoutData>
+
+                        <smartTable:customToolbar>
+                        
+                            <OverflowToolbar design="Transparent" style="Clear"> 
+                                <ToolbarSpacer />
+
+                            </OverflowToolbar>
+                        </smartTable:customToolbar>
+
+                        <Table selectionChange="" mode="None" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar">
+                            <items>
+                                <ColumnListItem vAlign="Middle"/>
+                            </items>
+                        </Table>   
+  
+                    </smartTable:SmartTable>
+            </f:content>
+        </f:DynamicPage>
+
+
+        </content>
+    </Page>
+</mvc:View>
