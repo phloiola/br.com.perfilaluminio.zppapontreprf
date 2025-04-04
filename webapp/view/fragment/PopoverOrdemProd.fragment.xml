@@ -1,0 +1,210 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Popover
+        id="idOrdemProdPopover"
+        showHeader="true"
+        contentWidth="80%"
+        contentHeight="50%"
+        placement="Auto"
+    >
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <!-- <Button icon="sap-icon://nav-back" press="onPressGoHome" type="Default" />  -->
+                </contentLeft>
+                <contentMiddle>
+                    <Title text="{i18n>titlePopoverOrdemProd}" />
+                </contentMiddle>
+
+                <contentRight>
+                    <Button
+                        icon="sap-icon://decline"
+                        tooltip="Página Inicial"
+                        press="onClosePopoverOrdemProd"
+                        type="Default"
+                    />
+                    <!-- <Button icon="sap-icon://decline" tooltip="Fechar" press="onPressGoHome" type="Default" />  -->
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <Table
+            id="idPopoverOrdemProdTable"
+            mode="None"
+            busyIndicatorDelay="200"
+            sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+        >
+            <layoutData>
+                <FlexItemData
+                    growFactor="1"
+                    baseSize="0%"
+                />
+            </layoutData>
+            <columns>
+                <Column
+                    width="6em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdOrdemProd}" />
+                    </header>
+                </Column>
+                <Column
+                    width="6.5em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdDtProgr}" />
+                    </header>
+                </Column>
+                <Column width="15em">
+                    <header>
+                        <Text text="{i18n>ColumnShProdMaterial}" />
+                    </header>
+                </Column>
+
+                <Column width="6em">
+                    <header>
+                        <Text text="{i18n>ColumnShProdPerfil}" />
+                    </header>
+                </Column>
+
+                <Column width="4em">
+                    <header>
+                        <Text text="{i18n>ColumnShProdLiga}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="7.2em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdComprimento}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="6em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdTempera}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="7em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdAcabamento}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="6em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdQtdePec}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="6em"
+                    hAlign="Center"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdQtdeKG}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="6em"
+                    visible="false"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdQtdeProdPec}" />
+                    </header>
+                </Column>
+
+                <Column
+                    width="6em"
+                    visible="false"
+                >
+                    <header>
+                        <Text text="{i18n>ColumnShProdQtdeProdKG}" />
+                    </header>
+                </Column>
+
+                <Column width="6em">
+                    <header>
+                        <Text text="{i18n>ColumnShProdOv}" />
+                    </header>
+                </Column>
+
+                <Column width="6em">
+                    <header>
+                        <Text text="{i18n>ColumnShProdOvItem}" />
+                    </header>
+                </Column>
+                <Column width="15em">
+                    <header>
+                        <Text text="{i18n>ColumnCliente}" />
+                    </header>
+                </Column>
+            </columns>
+            <dependents>
+                <ColumnListItem
+                    id="idPopoverOrdemProdColumnListItem"
+                    vAlign="Middle"
+                >
+                    <cells>
+                        <ObjectIdentifier title="{OrdemProd}" />
+                        <Text
+                            text="{ 'path': 'DtProgr', 'type': 'sap.ui.model.type.DateTime', 'formatOptions': { 'pattern': 'dd.MM.yyyy', 'UTC': true } }"
+                        />
+                        <!-- <Text text="{ path: 'Ssedd', formatter: '.formatDate' }" /> -->
+                        <ObjectIdentifier text="{Matnr}" />
+                        <ObjectIdentifier text="{Perfil}" />
+                        <ObjectIdentifier text="{Liga}" />
+
+                        <Text
+                            text="{path: 'Comprimento', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 0, maxFractionDigits: 2, preserveDecimals: false, source: {} }}"
+                            wrapping="false"
+                        />
+
+                        <ObjectIdentifier text="{Tempera}" />
+                        <ObjectIdentifier text="{Acabamento}" />
+
+                        <Text
+                            text="{path: 'QtdePec', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 0, maxFractionDigits: 2, preserveDecimals: false, source: {} }}"
+                            wrapping="false"
+                        />
+
+                        <Text
+                            text="{path: 'QtdeKg', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3, maxFractionDigits: 3, preserveDecimals: false, source: {} }}"
+                            wrapping="false"
+                        />
+
+                        <Text
+                            text="{path: 'QtdeProdPec', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 0, maxFractionDigits: 2, preserveDecimals: false, source: {} }}"
+                            wrapping="false"
+                        />
+
+                        <Text
+                            text="{path: 'QtdeProdKg', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2, preserveDecimals: false, source: {} }}"
+                            wrapping="false"
+                        />
+                        <ObjectIdentifier text="{VbelnVa}" />
+                        <ObjectIdentifier text="{PosnrVa}" />
+                        <ObjectIdentifier text="{Name1}" />
+                    </cells>
+                </ColumnListItem>
+            </dependents>
+        </Table>
+    </Popover>
+</core:FragmentDefinition>

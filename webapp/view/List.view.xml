@@ -92,7 +92,7 @@
                         useTablePersonalisation="true"
                         header="Programação"
                         showRowCount="true"
-                        requestAtLeastFields=""
+                        requestAtLeastFields="DtProgr"
                         initiallyVisibleFields="CentroTrab,Equnr,QtdeOPs,BO,BAT,Comprimento,Tempera,QtdePec,QtdeKg"
                         beforeRebindTable="onBeforeRebindTable"
                         ignoredFields="DtProgr"
@@ -128,8 +128,33 @@
                         </smartTable:customToolbar>
 
                         <Table selectionChange="" mode="None" sticky="ColumnHeaders,HeaderToolbar,InfoToolbar">
+                            
+                            <columns>
+
+                            <Column
+                                hAlign="Center"
+                                demandPopin="false"
+                            >
+                                <customData>
+                                    <core:CustomData
+                                        key="p13nData"
+                                        value='\{"columnKey": "Equnr", "leadingProperty": "Equnr", "columnIndex": 1, "autoColumnWidth": \{"gap": 0 } }'
+                                    />
+                                </customData>
+                                <Text
+                                    text="{/#Ferramenta/Equnr/@sap:label}"
+                                    textAlign="Center"
+                                />
+                            </Column>
+
+
+                            </columns>
                             <items>
-                                <ColumnListItem vAlign="Middle"/>
+                                <ColumnListItem vAlign="Middle">
+
+                                    <ObjectIdentifier title="{Equnr}" titlePress="onPopoverOrdemProd" titleActive="true"/>
+
+                                </ColumnListItem>
                             </items>
                         </Table>   
   
