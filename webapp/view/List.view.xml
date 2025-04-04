@@ -138,7 +138,7 @@
                                 <customData>
                                     <core:CustomData
                                         key="p13nData"
-                                        value='\{"columnKey": "Equnr", "leadingProperty": "Equnr", "columnIndex": 1, "autoColumnWidth": \{"gap": 0 } }'
+                                        value='\{"columnKey": "Equnr", "leadingProperty": "Equnr", "filterProperty": "Equnr", "columnIndex": 1, "autoColumnWidth": \{"gap": 0 } }'
                                     />
                                 </customData>
                                 <Text
