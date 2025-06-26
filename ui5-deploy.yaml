@@ -20,6 +20,6 @@ builder:
           name: ZPP_APONT_REPRF
           description: Relatório de Programação por Ferramenta
           package: ZAPONTAMENTO
-          transport: SHDK916080
+          transport: SHDK916535
         exclude:
           - /test/

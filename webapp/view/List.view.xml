@@ -93,7 +93,7 @@
                         header="Programação"
                         showRowCount="true"
                         requestAtLeastFields="DtProgr"
-                        initiallyVisibleFields="CentroTrab,Equnr,QtdeOPs,BO,BAT,Comprimento,Tempera,QtdePec,QtdeKg,Endereco"
+                        initiallyVisibleFields="CentroTrab,Equnr,QtdeOPs,BO,BAT,Comprimento,Tempera,QtdePec,QtdeKg,Endereco,Status,VidaRestante"
                         beforeRebindTable="onBeforeRebindTable"
                         ignoredFields="DtProgr"
                         enableAutoColumnWidth="true"
